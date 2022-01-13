@@ -5,7 +5,7 @@ import "./App.css";
 interface AppProps {
   isLoading: boolean;
   emoji: string;
-  loading: any;
+  icon: any;
 }
 
 class App extends React.Component<{}, AppProps> {
@@ -14,27 +14,24 @@ class App extends React.Component<{}, AppProps> {
     this.state = {
       isLoading: false,
       emoji: "❔",
-      loading: <img className="Loading" src={Loading} alt="Loading icon." />,
+      icon: <div className="Emoji">❔</div>,
     };
   }
 
   click(): void {
-    if (this.state.isLoading) {
-      this.setState({ emoji: "." });
-    } else {
-      this.setState({ emoji: "❔" });
+    if (!this.state.isLoading) {
+      this.setState({
+        icon: <img className="Loading" src={Loading} alt="Loading icon." />,
+        isLoading: true,
+      });
     }
-    console.log(this.state.isLoading);
-
-    this.setState({ isLoading: !this.state.isLoading });
   }
 
   render() {
     return (
       <div className="App">
         <header className="App-header">
-          {this.state.loading}
-          <div className="Emoji">{this.state.emoji}</div>
+          {this.state.icon}
 
           <div className="Input">
             <select name="Language" id="lang">

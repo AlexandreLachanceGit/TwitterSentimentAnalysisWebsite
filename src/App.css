@@ -20,12 +20,21 @@
 }
 
 .Emoji {
-  font-size: calc(10px + 20vmin);
+  font-size: 30vh;
+  position: absolute;
+  top: 10vh;
+}
+
+.Input {
+  position: absolute;
+  top: 70vh;
 }
 
 .Loading {
-  height: calc(10px + 20vmin);
+  height: 30vh;
   pointer-events: none;
+  position: absolute;
+  top: 15vh;
 }
 
 @keyframes loading-icon-spin {
